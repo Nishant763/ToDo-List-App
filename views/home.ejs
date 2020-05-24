@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List App</title>
     <link rel="stylesheet" href="home.css">
+    <script src="https://use.fontawesome.com/23d7cc30cf.js"></script>
 </head>
 <body>
     <div id="template">
@@ -13,9 +14,39 @@
         <form action="/" method="post">
             <label for="DESCRIPTION">DESCRIPTION</label>
             <br>
-            <input type="text" id="desc" placeholder="What do you need to do">
-        
+            <input type="text" id="desc" placeholder="What do you need to do?">
+            <hr>
+            <div class="container">
+                <div class="fiftyP" id="cont1">
+                    <label for="CATEGORY">CATEGORY</label><br>
+                     
+                     <div id="category" name='category' class="dropdown">
+                        <input type="text" placeholder="Choose a category" style="background-color: inherit;border:none" id="in"> 
+                        <i class="fa fa-arrow-down" aria-hidden="true" onclick="myfunction()" id="arrow"></i>
+                         <div id="myDropdown" class="dropdown-content">
+                            <div class="myDivs">Personel</div>
+                            <div class="myDivs">Work</div>
+                            <div class="myDivs">School</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fiftyP" id="cont2">
+                    <label for="DUEDATE">DUE DATE</label><br>
+                
+                    <input type="date" id="date" name="date">
+                </div>
+                <br>
+                
+             </div>
+             <hr>
+             <div id="buttons">
+                <button type="submit" name="add_task" class="button-style grey"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;ADD TASK</button>
+                <button type="submit" name="delete_task" class="button-style red"><i class="fa fa-bitbucket" aria-hidden="true"></i>&nbsp;DELETE TASK</button>
+            </div>  
+            
         </form>
+        <hr>
     </div>
+    <script src="jscript.js"></script>
 </body>
 </html>
