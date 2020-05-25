@@ -14,12 +14,12 @@
         <form action="/add-task" method="post">
             <label for="DESCRIPTION">DESCRIPTION</label>
             <br>
-            <input type="text" id="desc" placeholder="What do you need to do?" name="description">
+            <input type="text" id="desc" placeholder="What do you need to do?" name="description" required>
             <hr>
             <div class="container">
                 <div class="fiftyP" id="cont1">
                     <label for="CATEGORY">CATEGORY</label><br>
-                    <input type="text" placeholder="Choose a category" style="background-color: inherit;border:none" id="in" name="category"> 
+                    <input type="text" placeholder="Choose a category" style="background-color: inherit;border:none" id="in" name="category" required> 
                      <div id="category" name='category' class="dropdown">
                         
                         <i class="fa fa-arrow-down" aria-hidden="true" onclick="myfunction()" id="arrow"></i>
@@ -33,7 +33,7 @@
                 <div class="fiftyP" id="cont2">
                     <label for="DUEDATE">DUE DATE</label><br>
                 
-                    <input type="date" id="date" name="date">
+                    <input type="date" id="date" name="date" required>
                 </div>
                 <br>
                 
@@ -48,8 +48,20 @@
         <hr>
         <ul>
             <% for(let task of tasks_list){ %>
-                <li><%= task.des %> &nbsp; <%= task.due_date %> &nbsp; <%= task.category %></li>
-                
+                <li>
+                    
+                    <input type="checkbox" name="tik" id="<%= task._id%>">&nbsp;
+                    <div class="container">
+                        <div>
+                            <div class="destype "><%= task.des %>  </div>
+                            <div class="date"><i class="fa fa-calendar " aria-hidden="true"></i><%= task.due_date.toString().slice(0,15) %></div>
+                        </div>
+                        <div class="catBox purple"> 
+                            <%= task.category %>
+                        </div>
+                    </div>
+                </li>
+                <hr>
                 
              <%}%>
         </ul>

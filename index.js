@@ -18,7 +18,7 @@ app.get('/', function(req,res){
             console.log("Error: ",err);
             return;
         }
-
+        console.log(tasks[0].get('due_date').toString().slice(0,15));
         return res.render('home',{
             tasks_list:tasks
         })
