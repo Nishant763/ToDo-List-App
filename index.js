@@ -1,15 +1,52 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 const port = 8000;
+const db = require('./config/mongoose');
+const Task = require('./models/task');
+
+app.set('views', path.join(__dirname,'views'));
+app.set('view engine','ejs');
 
 app.use(express.static('views'));
 app.use(express.urlencoded());
 
-app.set('view engine','ejs');
 
 app.get('/', function(req,res){
-    return res.render('home');
+    Task.find({}, function(err,tasks){
+        if(err){
+            console.log("Error: ",err);
+            return;
+        }
+
+        return res.render('home',{
+            tasks_list:tasks
+        })
+
+    })
+    
 })
+
+app.post('/add-task', function(req,res){
+    Task.create({
+        des: req.body.description,
+        category: req.body.category,
+        due_date: req.body.date
+    }, function(err,NewTask){
+        if(err){
+            console.log("Error: ",err);
+            return;
+        }
+        console.log(NewTask);
+
+        return res.redirect('back');
+
+    })
+    // console.log(req.body);
+
+    
+
+});
 
 app.listen(port, function(err){
     if(err){

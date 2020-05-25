@@ -11,17 +11,17 @@
     <div id="template">
         <header>To Do List App</header>
         <hr>
-        <form action="/" method="post">
+        <form action="/add-task" method="post">
             <label for="DESCRIPTION">DESCRIPTION</label>
             <br>
-            <input type="text" id="desc" placeholder="What do you need to do?">
+            <input type="text" id="desc" placeholder="What do you need to do?" name="description">
             <hr>
             <div class="container">
                 <div class="fiftyP" id="cont1">
                     <label for="CATEGORY">CATEGORY</label><br>
-                     
+                    <input type="text" placeholder="Choose a category" style="background-color: inherit;border:none" id="in" name="category"> 
                      <div id="category" name='category' class="dropdown">
-                        <input type="text" placeholder="Choose a category" style="background-color: inherit;border:none" id="in"> 
+                        
                         <i class="fa fa-arrow-down" aria-hidden="true" onclick="myfunction()" id="arrow"></i>
                          <div id="myDropdown" class="dropdown-content">
                             <div class="myDivs">Personel</div>
@@ -46,6 +46,13 @@
             
         </form>
         <hr>
+        <ul>
+            <% for(let task of tasks_list){ %>
+                <li><%= task.des %> &nbsp; <%= task.due_date %> &nbsp; <%= task.category %></li>
+                
+                
+             <%}%>
+        </ul>
     </div>
     <script src="jscript.js"></script>
 </body>
