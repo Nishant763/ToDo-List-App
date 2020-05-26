@@ -43,10 +43,24 @@ app.post('/add-task', function(req,res){
 
     })
     // console.log(req.body);
-
-    
-
 });
+
+app.post('/delete-task', function(req,res){
+    let ids = Object.keys(req.body).slice(1);
+    
+    for(id of ids){
+        Task.findByIdAndDelete({
+            _id:id
+        },function(err){
+            if(err){
+                console.log("Error: ",err);
+                return;
+            }
+            
+        })
+    }
+    return res.redirect('back');
+})
 
 app.listen(port, function(err){
     if(err){

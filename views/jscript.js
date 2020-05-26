@@ -18,3 +18,15 @@ for(let anchorTag of anchorTags){
         myfunction();
     })
 }
+
+let deleteB = document.getElementById('deleteButton');
+deleteB.addEventListener('click', function(ev){
+    let checkedIds = [];
+    let inputEls = document.querySelectorAll("div#template>ul>li>input");
+    for(inputEl of inputEls){
+        if(inputEl.checked){
+            checkedIds.push(inputEl.id);
+        }
+    }
+    console.log(checkedIds);
+})

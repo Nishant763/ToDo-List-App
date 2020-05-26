@@ -41,18 +41,20 @@
              <hr>
              <div id="buttons">
                 <button type="submit" name="add_task" class="button-style grey"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;ADD TASK</button>
-                <button type="submit" name="delete_task" class="button-style red"><i class="fa fa-bitbucket" aria-hidden="true"></i>&nbsp;DELETE TASK</button>
+            </form>
+                <form action="/delete-task" method="POST">
+                <button type="submit" name="delete_task" class="button-style red" id="deleteButton"><i class="fa fa-bitbucket" aria-hidden="true"></i>&nbsp;DELETE TASK</button>
             </div>  
             
-        </form>
+        
         <hr>
         <ul>
             <% for(let task of tasks_list){ %>
                 <li>
                     
-                    <input type="checkbox" name="tik" id="<%= task._id%>">&nbsp;
+                    <input type="checkbox" name="<%= task._id%>"  >&nbsp;
                     <div class="container">
-                        <div>
+                        <div class="cont2">
                             <div class="destype "><%= task.des %>  </div>
                             <div class="date"><i class="fa fa-calendar " aria-hidden="true"></i><%= task.due_date.toString().slice(0,15) %></div>
                         </div>
@@ -65,6 +67,7 @@
                 
              <%}%>
         </ul>
+        </form>
     </div>
     <script src="jscript.js"></script>
 </body>
