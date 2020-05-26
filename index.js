@@ -14,11 +14,14 @@ app.use(express.urlencoded());
 
 app.get('/', function(req,res){
     Task.find({}, function(err,tasks){
+        // if(tasks== undefined){
+        //     return res.render('home');
+        // }
         if(err){
             console.log("Error: ",err);
             return;
         }
-        console.log(tasks[0].get('due_date').toString().slice(0,15));
+        
         return res.render('home',{
             tasks_list:tasks
         })
@@ -37,7 +40,7 @@ app.post('/add-task', function(req,res){
             console.log("Error: ",err);
             return;
         }
-        console.log(NewTask);
+        // console.log(NewTask);
 
         return res.redirect('back');
 
