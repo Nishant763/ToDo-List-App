@@ -51,5 +51,6 @@ for(inputEl of inputEls){
     inputEl.addEventListener('click', function(){
         let div = document.getElementById('strike');
          div.classList.toggle('strike');
+         div.classList.toggle('texteffects');
     })
 }
