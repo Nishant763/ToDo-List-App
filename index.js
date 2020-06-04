@@ -21,9 +21,29 @@ app.get('/', function(req,res){
             console.log("Error: ",err);
             return;
         }
+        let bgcolor = [];
+        for(task of tasks){
+            if(task.category=='Personel'){
+                bgcolor.push('red');
+            }
+            else if(task.category =='Work'){
+                bgcolor.push('blue');
+            }
+            else if(task.category =='School'){
+                bgcolor.push('purple');
+            }
+            else if(task.category =='Cleaning'){
+                bgcolor.push('green');
+            }
+            else{
+                bgcolor.push('yellow');
+            }
+        }
+        
         
         return res.render('home',{
-            tasks_list:tasks
+            tasks_list:tasks,
+            bgcolors:bgcolor
         })
 
     })

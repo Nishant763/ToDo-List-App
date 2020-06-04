@@ -27,6 +27,8 @@
                             <div class="myDivs">Personel</div>
                             <div class="myDivs">Work</div>
                             <div class="myDivs">School</div>
+                            <div class="myDivs">Cleaning</div>
+                            <div class="myDivs">Other</div>
                         </div>
                     </div>
                 </div>
@@ -49,17 +51,17 @@
         
         <hr>
         <ul>
-            <% for(let task of tasks_list){ %>
+            <% for(let i=0,j=0; i < tasks_list.length && j< bgcolors.length;i++,j++){ %>
                 <li>
                     
                     <input type="checkbox" name="<%= task._id%>"  >&nbsp;
-                    <div class="container">
+                    <div class="container " id="strike">
                         <div class="cont2">
-                            <div class="destype "><%= task.des %>  </div>
-                            <div class="date"><i class="fa fa-calendar " aria-hidden="true"></i><%= task.due_date.toString().slice(0,15) %></div>
+                            <div class="destype "><%= tasks_list[i].des %>  </div>
+                            <div class="date"><i class="fa fa-calendar " aria-hidden="true"></i><%= tasks_list[i].due_date.toString().slice(0,15) %></div>
                         </div>
-                        <div class="catBox purple"> 
-                            <%= task.category %>
+                        <div class="catBox" style="background-color:<%= bgcolors[i] %>"> 
+                            <%= tasks_list[i].category %>
                         </div>
                     </div>
                 </li>
