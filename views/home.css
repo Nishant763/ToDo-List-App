@@ -88,6 +88,7 @@ header{
 }
 
 .button-style{
+    border: none;
     height: 40px;
     min-width: 100px;
     text-align: center;
@@ -124,7 +125,7 @@ li{
 .catBox{
     height: 20px;
     width: 60px;
-    border: 1px solid black;
+    
     padding: 1%;
     text-align: center;
     font-size: 0.8rem;
@@ -143,7 +144,4 @@ hr{
 }
 .strike{
     text-decoration: line-through;
-}
-.texteffects{
-    color: aquamarine;
 }
