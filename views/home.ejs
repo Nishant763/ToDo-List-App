@@ -54,8 +54,8 @@
             <% for(let i=0,j=0; i < tasks_list.length && j< bgcolors.length;i++,j++){ %>
                 <li>
                     
-                    <input type="checkbox" name="<%= task._id%>"  >&nbsp;
-                    <div class="container " id="strike">
+                    <input type="checkbox" name="<%= tasks_list[i]._id%>"  >&nbsp;
+                    <div class="container " id="<%= tasks_list[i]._id%>">
                         <div class="cont2">
                             <div class="destype "><%= tasks_list[i].des %>  </div>
                             <div class="date"><i class="fa fa-calendar " aria-hidden="true"></i><%= tasks_list[i].due_date.toString().slice(0,15) %></div>
@@ -71,6 +71,6 @@
         </ul>
         </form>
     </div>
-    <script src="jscript.js"></script>
+    <script src="jscript.js" async='false'></script>
 </body>
 </html>
